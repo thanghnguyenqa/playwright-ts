@@ -1,15 +1,16 @@
-import { Locator, Page } from '@playwright/test'
+import { expect, Locator, Page } from '@playwright/test'
 
 export class BasePage {
 
     readonly page: Page;
+    readonly titleLocator = '.text-center';
 
     constructor(page: Page) {
         this.page = page;
     }
 
     async navigate(url: string) {
-        await this.page.goto(url);
+        await this.page.goto(url, { waitUntil: 'domcontentloaded' });
     }
 
     async click(locator: string) {
@@ -22,5 +23,10 @@ export class BasePage {
 
     async getContentText( locator: string ){
         return (await this.page.locator(locator).innerText()) ?? '';
+    }
+
+    async getTitle(){
+        console.log("Get page's title");
+    return await this.getContentText(this.titleLocator);
     }
 }

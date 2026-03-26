@@ -9,7 +9,6 @@ export class TextBoxPage extends BasePage {
     readonly currentAddr: FormField;
     readonly permanentAddr: FormField;
     private readonly url = "https://demoqa.com/text-box";
-    private readonly titleLocator = '.text-center';
     private readonly userNameLableLocator = '#userName-label';
     private readonly userNameLocator = '#userName';
     private readonly emailLableLocator = '#userEmail-label';
@@ -47,11 +46,6 @@ constructor(page: Page){
     async gotoTextBoxPage(){
     console.log("Navigated to Text Box Page");
     await this.navigate(this.url);
-}
-
-    async getTitle(){
-    console.log("Get page's title");
-    return await this.getContentText(this.titleLocator);
 }
 
     async clickSubmitBtn(){

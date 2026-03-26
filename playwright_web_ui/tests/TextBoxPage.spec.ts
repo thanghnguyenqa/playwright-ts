@@ -70,9 +70,7 @@ test.describe('Verify Text Box Page', { tag: '@text_box_page' }, () => {
         }
     });
 
-
-
-    test('TC07 - Verify output when filling all form fields',{tag: '@test'}, async () => {
+    test('TC07 - Verify output when filling all form fields', async () => {
         let nameValue: string = fullFieldsData.nameValue;
         let emailValue: string = fullFieldsData.emailValue;
         let currentAddrValue: string = fullFieldsData.currentAddrValue;

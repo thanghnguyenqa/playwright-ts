@@ -1,4 +1,4 @@
-import { Locator, Page } from '@playwright/test';
+import { expect, Locator, Page } from '@playwright/test';
 import { BasePage } from '../base/BasePage';
 
 export class HomePage extends BasePage {
@@ -55,5 +55,9 @@ export class HomePage extends BasePage {
     async selectBooksSection(){
         console.log("Clicked on Interactions section");
         await this.click(this.booksLocator);
+    }
+
+    async isVisible(element: string){
+        await expect(this.getCardByText(element)).toBeVisible();
     }
 }
